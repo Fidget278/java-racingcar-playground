@@ -1,9 +1,8 @@
 apply plugin: 'java'
-apply plugin: 'eclipse'
 
 group = 'camp.nextstep'
 version = '1.0.0'
-sourceCompatibility = '1.8'
+sourceCompatibility = "10"
 
 repositories {
 	mavenCentral()
@@ -17,3 +16,5 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+targetCompatibility = JavaVersion.VERSION_11
