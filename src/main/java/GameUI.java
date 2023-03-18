@@ -26,7 +26,7 @@ public class GameUI {
         System.out.println("실행 결과");
 
         for(var car : racingCars.getCars()) {
-            System.out.println(car.getName() + " : " + car.getForwardBar());
+           car.printPosition();
         }
     }
 

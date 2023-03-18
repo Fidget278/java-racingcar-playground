@@ -22,11 +22,11 @@ public class RacingCars {
     }
 
     public String selectWinners() {
-        Optional<Integer> max = cars.stream().map(Car::getForward).max(Integer::compare);
+        Optional<Integer> max = cars.stream().map(Car::getCarPosition).map(CarPosition::getPosition).max(Integer::compare);
 
         if (max.isPresent()) {
             return cars.stream()
-                    .filter(car -> max.equals(Optional.of(car.getForward())))
+                    .filter(car -> max.equals(Optional.of(car.getCarPosition().getPosition())))
                     .map(Car::getName)
                     .collect(Collectors.joining(","));
         }

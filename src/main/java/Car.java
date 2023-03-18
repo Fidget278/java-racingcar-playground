@@ -1,14 +1,14 @@
-import java.util.Optional;
-import java.util.stream.Stream;
-
 public class Car {
-    private String name;
-    private int forward;
-    private StringBuffer forwardBar = new StringBuffer();
-    private final static int accStandard = 4;
+
+    final private CarName name;
+    private final CarPosition carPosition;
+
+    private final static int ACC_STANDARD = 4;
 
     public Car(String name) {
-        this.name = checkValidName(name);
+
+        this.name = new CarName(name);
+        this.carPosition = new CarPosition(0);
     }
 
     public void race() {
@@ -16,26 +16,21 @@ public class Car {
     }
 
     void goForward(int acc) {
-        if(acc >= accStandard) {
-            ++forward;
-            forwardBar.append("-");
+        if(acc >= ACC_STANDARD) {
+            carPosition.move();
         }
     }
 
-    private String checkValidName(String name) {
-        if(name == null || name.equals("") || name.length() > 5)
-            throw new RuntimeException();
-
-        return name;
-    }
-
     public String getName() {
-        return name;
+        return name.toString();
     }
-    public int getForward() {
-        return forward;
+
+    public void printPosition() {
+        System.out.print(name + " : ");
+        carPosition.printCarPosition();
     }
-    public String getForwardBar() {
-        return forwardBar.toString();
+
+    public CarPosition getCarPosition() {
+        return carPosition;
     }
 }
