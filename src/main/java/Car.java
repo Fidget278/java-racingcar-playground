@@ -11,11 +11,7 @@ public class Car {
         this.carPosition = new CarPosition(0);
     }
 
-    public void race() {
-        goForward(NumberUtil.getRandomNumToN(9));
-    }
-
-    void goForward(int acc) {
+    public void goForward(int acc) {
         if(acc >= ACC_STANDARD) {
             carPosition.move();
         }

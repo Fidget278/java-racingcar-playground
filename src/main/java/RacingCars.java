@@ -18,7 +18,7 @@ public class RacingCars {
     }
 
     public void race() {
-        cars.stream().forEach(car -> car.race());
+        cars.stream().forEach(car -> car.goForward(NumberUtil.getRandomNumToN(9)));
     }
 
     public String selectWinners() {

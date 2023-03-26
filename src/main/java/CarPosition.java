@@ -8,6 +8,7 @@ public class CarPosition {
 
     public void move() {
         ++position;
+        positionBar.append("=");
     }
 
     public void printCarPosition() {
